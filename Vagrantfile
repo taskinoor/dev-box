@@ -10,4 +10,8 @@ Vagrant.configure(2) do |config|
 	dev_box.vm.hostname = "dev-box"
   end
 
+  config.vm.provision "ansible" do |ansible|
+    ansible.playbook = "provisioning/playbook.yml"
+  end
+
 end
