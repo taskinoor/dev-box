@@ -1,5 +1,0 @@
----
-- hosts: all
-  tasks:
-    - name: test ansible provisioning
-      command: echo "Hello Ansible with Vagrant"
