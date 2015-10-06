@@ -1,0 +1,9 @@
+---
+- hosts: dev-box
+
+  tasks:
+    - name: test playbook execution on dev-box
+      command: echo "Hello dev-box"
+      register: res
+
+    - debug: var=res.stdout
