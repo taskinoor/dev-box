@@ -15,6 +15,7 @@ Vagrant.configure(2) do |config|
   config.vm.define "ansible-control-box" do |control_box|
     control_box.vm.hostname = "ansible-control-box"
     control_box.vm.network "private_network", ip: "192.168.31.13"
+    control_box.vm.provision "shell", path: "provision_control_box.sh", privileged: false
 
     control_box.vm.provider "virtualbox" do |vb|
       vb.memory = 512
