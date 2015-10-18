@@ -2,3 +2,7 @@
 - name: install system packages
   apt: name={{ item }} state=present update_cache=yes
   with_items: system_packages
+
+- name: install python global packages
+  pip: name={{ item }}
+  with_items: python_global_packages

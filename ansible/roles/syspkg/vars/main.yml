@@ -3,3 +3,7 @@ system_packages:
   - screen
   - git
   - htop
+  - python-pip
+python_global_packages:
+  - virtualenv
+  - ipython

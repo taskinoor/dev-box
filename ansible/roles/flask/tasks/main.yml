@@ -1,0 +1,3 @@
+---
+- name: install requirements
+  pip: requirements=/vagrant/ansible/roles/flask/files/requirements.txt virtualenv={{ virtualenv_path }}
