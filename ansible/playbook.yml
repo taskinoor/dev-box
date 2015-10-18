@@ -1,0 +1,7 @@
+---
+- hosts: dev-box
+  sudo: yes
+  gather_facts: no
+
+  roles:
+    - syspkg
