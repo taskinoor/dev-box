@@ -1,0 +1,4 @@
+---
+- name: copy timezone file
+  copy: content='Asia/Dhaka\n' dest=/etc/timezone owner=root group=root mode=0644
+  notify: update timezone
