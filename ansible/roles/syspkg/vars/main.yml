@@ -4,6 +4,7 @@ system_packages:
   - git
   - htop
   - python-pip
+  - vim
 python_global_packages:
   - virtualenv
   - ipython
