@@ -1,0 +1,6 @@
+---
+- name: copy script
+  copy: src=el.py dest="{{ vagrant_home }}/el.py" owner=vagrant group=vagrant mode=0644
+
+- name: add command in .bashrc
+  lineinfile: dest="{{ vagrant_home }}/.bashrc" line="python {{ vagrant_home }}/el.py" state=present
