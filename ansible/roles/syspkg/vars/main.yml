@@ -9,3 +9,4 @@ python_global_packages:
   - virtualenv
   - ipython
   - python-dateutil
+  - yolk

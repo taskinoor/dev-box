@@ -1,1 +1,2 @@
 flask==0.10.1
+flask-script==2.0.5
