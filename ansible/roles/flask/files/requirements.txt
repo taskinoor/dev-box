@@ -1,3 +1,5 @@
 flask==0.10.1
 flask-script==2.0.5
 flask-bootstrap==3.3.5.7
+flask-moment==0.5.1
+flask-wtf==0.12
