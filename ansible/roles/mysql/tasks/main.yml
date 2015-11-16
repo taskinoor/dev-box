@@ -19,3 +19,13 @@
     - 127.0.0.1
     - ::1
     - localhost
+
+- name: create databases
+  mysql_db:
+    name: "{{ item }}"
+    state: present
+    encoding: utf8
+    collation: utf8_general_ci
+    login_user: root
+    login_password: "{{ root_password }}"
+  with_items: databases

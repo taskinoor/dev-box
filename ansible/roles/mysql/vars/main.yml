@@ -5,3 +5,6 @@ packages:
   - python-mysqldb
 
 root_password: qazxsw
+
+databases:
+  - flasky
