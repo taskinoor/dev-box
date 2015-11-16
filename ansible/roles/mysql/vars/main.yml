@@ -1,0 +1,7 @@
+---
+packages:
+  - mysql-server
+  - mysql-client
+  - python-mysqldb
+
+root_password: qazxsw

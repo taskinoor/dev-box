@@ -1,0 +1,21 @@
+---
+- name: install mysql
+  apt: name={{ item }} state=present update_cache=yes
+  with_items: packages
+
+- name: start mysql
+  service: name=mysql state=started enabled=true
+
+- name: update mysql root password for all root accounts
+  mysql_user:
+    name: root
+    host: "{{ item }}"
+    password: "{{ root_password }}"
+    login_user: root
+    login_password: "{{ root_password }}"
+    check_implicit_admin: yes
+    priv: "*.*:ALL,GRANT"
+  with_items:
+    - 127.0.0.1
+    - ::1
+    - localhost
