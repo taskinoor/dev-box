@@ -3,6 +3,7 @@ packages:
   - mysql-server
   - mysql-client
   - python-mysqldb
+  - libmysqlclient-dev
 
 root_password: qazxsw
 

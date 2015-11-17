@@ -4,3 +4,4 @@ flask-bootstrap==3.3.5.7
 flask-moment==0.5.1
 flask-wtf==0.12
 flask-sqlalchemy==2.1
+MySQL-python==1.2.5
