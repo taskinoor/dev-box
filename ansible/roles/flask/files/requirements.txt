@@ -5,3 +5,4 @@ flask-moment==0.5.1
 flask-wtf==0.12
 flask-sqlalchemy==2.1
 MySQL-python==1.2.5
+Flask-Migrate==1.6.0
