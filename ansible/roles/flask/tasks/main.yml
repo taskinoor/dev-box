@@ -3,4 +3,7 @@
   pip: requirements=/vagrant/ansible/roles/flask/files/requirements.txt virtualenv={{ virtualenv_path }}
 
 - name: export sqlalchemy dev db url for flasky project
-  lineinfile: dest="{{ vagrant_home }}/.bashrc" line="{{ flasky_mysql_config_line }}" state=present
+  lineinfile: dest="{{ vagrant_home }}/.bashrc" line="{{ flasky_dev_db_config_line }}" state=present
+
+- name: export sqlalchemy test db url for flasky project
+  lineinfile: dest="{{ vagrant_home }}/.bashrc" line="{{ flasky_test_db_config_line }}" state=present
