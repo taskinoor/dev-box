@@ -1,2 +1,3 @@
 ---
 virtualenv_path: /home/vagrant/.virtualenv/flask
+flasky_mysql_config_line: "export DEV_DATABASE_URL=mysql://root:{{ mysql_root_password }}@localhost/flasky"

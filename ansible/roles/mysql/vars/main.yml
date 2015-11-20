@@ -5,7 +5,5 @@ packages:
   - python-mysqldb
   - libmysqlclient-dev
 
-root_password: qazxsw
-
 databases:
   - flasky
