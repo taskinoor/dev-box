@@ -7,3 +7,6 @@
 
 - name: export sqlalchemy test db url for flasky project
   lineinfile: dest="{{ vagrant_home }}/.bashrc" line="{{ flasky_test_db_config_line }}" state=present
+
+- name: export flasky admin email for flasky project
+  lineinfile: dest="{{ vagrant_home }}/.bashrc" line="{{ flasky_admin_config_line }}" state=present
