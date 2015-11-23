@@ -10,3 +10,4 @@ Flask-Mail==0.9.1
 Flask-Login==0.3.2
 Werkzeug==0.10.4
 itsdangerous==0.24
+ForgeryPy==0.1
