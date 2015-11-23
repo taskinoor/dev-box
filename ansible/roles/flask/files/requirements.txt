@@ -11,3 +11,6 @@ Flask-Login==0.3.2
 Werkzeug==0.10.4
 itsdangerous==0.24
 ForgeryPy==0.1
+Flask-PageDown==0.2.1
+Markdown==2.6.4
+bleach==1.4.2
