@@ -16,3 +16,4 @@ Markdown==2.6.4
 bleach==1.4.2
 Flask-HTTPAuth==2.7.0
 coverage==4.0.3
+gunicorn==19.4.1
