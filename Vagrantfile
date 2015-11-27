@@ -11,7 +11,7 @@ Vagrant.configure(2) do |config|
       vb.cpus = 4
     end
 
-    dev_box.vm.synced_folder "../Readings/Flask Web Development - Miguel Grinberg/flasky", "/flasky"
+    dev_box.vm.synced_folder "../eBooks/Flask Web Development - Miguel Grinberg/flasky", "/flasky"
   end
 
   config.vm.define "ansible-control-box" do |control_box|
