@@ -10,3 +10,4 @@ Here are some of the roles:
 * `mysql`: Install and configure MySQL server and client. Also creates necessary databases used by other roles.
 * `flask`: Install and configure Python Flask development environment.
 * `tzone`: Set timezone to `Asia/Dhaka`.
+* `c_cpp`: Install g++ and [Google Test framework](https://github.com/google/googletest).
