@@ -3,20 +3,29 @@
   apt: name={{ item }} state=present update_cache=yes
   with_items: packages
 
+- name: check gtest installation
+  stat: path=/usr/lib/libgtest.a
+  register: status
+
 - name: ensure gtest build directory
   file: path={{ gtest_build_dir }} state=directory
+  when: not status.stat.exists
 
 - name: cmake gtest
   command: cmake {{ gtest_src_dir }} chdir={{ gtest_build_dir }}
+  when: not status.stat.exists
 
 - name: make gtest
   command: make chdir={{ gtest_build_dir }}
+  when: not status.stat.exists
 
 - name: copy gtest libs
   command: cp {{ item }} /usr/lib/ chdir={{ gtest_build_dir }}
+  when: not status.stat.exists
   with_items:
     - libgtest.a
     - libgtest_main.a
 
 - name: remove gtest build directory
   file: path={{ gtest_build_dir }} state=absent
+  when: not status.stat.exists
