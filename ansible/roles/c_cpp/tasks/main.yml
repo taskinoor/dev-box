@@ -1,4 +1,22 @@
 ---
-- name: install cpp
+- name: install packages
   apt: name={{ item }} state=present update_cache=yes
   with_items: packages
+
+- name: ensure gtest build directory
+  file: path={{ gtest_build_dir }} state=directory
+
+- name: cmake gtest
+  command: cmake {{ gtest_src_dir }} chdir={{ gtest_build_dir }}
+
+- name: make gtest
+  command: make chdir={{ gtest_build_dir }}
+
+- name: copy gtest libs
+  command: cp {{ item }} /usr/lib/ chdir={{ gtest_build_dir }}
+  with_items:
+    - libgtest.a
+    - libgtest_main.a
+
+- name: remove gtest build directory
+  file: path={{ gtest_build_dir }} state=absent
