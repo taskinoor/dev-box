@@ -11,20 +11,14 @@
   file: path={{ gtest_build_dir }} state=directory
   when: not status.stat.exists
 
-- name: cmake gtest
-  command: cmake {{ gtest_src_dir }} chdir={{ gtest_build_dir }}
-  when: not status.stat.exists
-
-- name: make gtest
-  command: make chdir={{ gtest_build_dir }}
-  when: not status.stat.exists
-
-- name: copy gtest libs
-  command: cp {{ item }} /usr/lib/ chdir={{ gtest_build_dir }}
+- name: build and install gtest
+  command: "{{ item }} chdir={{ gtest_build_dir }}"
   when: not status.stat.exists
   with_items:
-    - libgtest.a
-    - libgtest_main.a
+    - cmake {{ gtest_src_dir }}
+    - make
+    - cp libgtest.a /usr/lib/
+    - cp libgtest_main.a /usr/lib/
 
 - name: remove gtest build directory
   file: path={{ gtest_build_dir }} state=absent
