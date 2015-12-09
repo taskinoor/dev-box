@@ -17,7 +17,9 @@ Vagrant.configure(2) do |config|
     ]
 
     _synced_folders.each do |host_path, guest_path|
-        dev_box.vm.synced_folder host_path, guest_path
+        if File.directory?(host_path)
+            dev_box.vm.synced_folder host_path, guest_path
+        end
     end
 
   end
