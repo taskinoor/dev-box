@@ -37,6 +37,17 @@
   file: path="{{ elasticsearch_install_dir }}/kibana-{{ kibana_version }}-linux-x64.tar.gz" state=absent
   when: not status.stat.exists
 
+- name: install marvel
+  command: "bin/plugin install {{ item }} chdir={{ elasticsearch_install_dir }}/elasticsearch-{{elasticsearch_version}}"
+  with_items:
+    - license
+    - marvel-agent
+  when: not status.stat.exists
+
+- name: add marvel to kibana
+  command: "bin/kibana plugin --install elasticsearch/marvel/latest chdir={{ elasticsearch_install_dir }}/kibana-{{ kibana_version }}"
+  when: not status.stat.exists
+
 - name: change owner of elasticsearch and kibana
   file:
     path: "{{ item }}"
