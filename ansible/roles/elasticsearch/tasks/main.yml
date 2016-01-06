@@ -48,6 +48,10 @@
   command: "bin/kibana plugin --install elasticsearch/marvel/latest chdir={{ elasticsearch_install_dir }}/kibana-{{ kibana_version }}"
   when: not status.stat.exists
 
+- name: install sense
+  command: "bin/kibana plugin --install elastic/sense chdir={{ elasticsearch_install_dir }}/kibana-{{ kibana_version }}"
+  when: not status.stat.exists
+
 - name: change owner of elasticsearch and kibana
   file:
     path: "{{ item }}"
