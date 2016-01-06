@@ -8,6 +8,7 @@ system_packages:
   - python-dev
   - make
   - cmake
+  - openjdk-7-jdk
 
 python_global_packages:
   - virtualenv
