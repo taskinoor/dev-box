@@ -17,3 +17,11 @@
 - name: remove downloaded archive
   file: path="{{ elasticsearch_install_dir }}/elasticsearch-{{ elasticsearch_version }}.tar.gz" state=absent
   when: not status.stat.exists
+
+- name: change owner of elasticsearch directory
+  file:
+    path: "{{ elasticsearch_install_dir }}/elasticsearch-{{ elasticsearch_version }}"
+    owner: vagrant
+    group: vagrant
+    recurse: yes
+    state: directory
