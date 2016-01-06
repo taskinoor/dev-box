@@ -11,3 +11,4 @@ Here are some of the roles:
 * `flask`: Install and configure Python Flask development environment.
 * `tzone`: Set timezone to `Asia/Dhaka`.
 * `c_cpp`: Install g++ and [Google Test framework](https://github.com/google/googletest).
+* `elasticsearch`: Install and configure Elasticsearch.
