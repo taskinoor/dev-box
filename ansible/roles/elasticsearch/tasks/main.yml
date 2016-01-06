@@ -1,0 +1,19 @@
+---
+- name: check elasticsearch installation
+  stat: path={{ elasticsearch_app }}
+  register: status
+
+- name: download elasticsearch
+  get_url: url={{ elasticsearch_download_url }} dest={{ elasticsearch_install_dir }}
+  when: not status.stat.exists
+
+- name: extract elasticsearch archive
+  unarchive:
+    src: "{{ elasticsearch_install_dir }}/elasticsearch-{{ elasticsearch_version }}.tar.gz"
+    dest: "{{ elasticsearch_install_dir }}"
+    copy: no
+  when: not status.stat.exists
+
+- name: remove downloaded archive
+  file: path="{{ elasticsearch_install_dir }}/elasticsearch-{{ elasticsearch_version }}.tar.gz" state=absent
+  when: not status.stat.exists
