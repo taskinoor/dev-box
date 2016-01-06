@@ -9,6 +9,7 @@ system_packages:
   - make
   - cmake
   - openjdk-7-jdk
+  - curl
 
 python_global_packages:
   - virtualenv
