@@ -1,55 +1,55 @@
 ---
 - name: check elasticsearch installation
-  stat: path={{ elasticsearch_app }}
+  stat: path={{ es_app }}
   register: status
 
 - name: download elasticsearch
-  get_url: url={{ elasticsearch_download_url }} dest={{ elasticsearch_install_dir }}
+  get_url: url={{ es_download_url }} dest={{ es_install_dir }}
   when: not status.stat.exists
 
 - name: extract elasticsearch archive
   unarchive:
-    src: "{{ elasticsearch_install_dir }}/elasticsearch-{{ elasticsearch_version }}.tar.gz"
-    dest: "{{ elasticsearch_install_dir }}"
+    src: "{{ es_dir }}.tar.gz"
+    dest: "{{ es_install_dir }}"
     copy: no
   when: not status.stat.exists
 
 - name: remove elasticsearch downloaded archive
-  file: path="{{ elasticsearch_install_dir }}/elasticsearch-{{ elasticsearch_version }}.tar.gz" state=absent
+  file: path="{{ es_dir }}.tar.gz" state=absent
   when: not status.stat.exists
 
 - name: download kibana
-  get_url: url={{ kibana_download_url }} dest={{ elasticsearch_install_dir }}
+  get_url: url={{ kibana_download_url }} dest={{ es_install_dir }}
   when: not status.stat.exists
 
 - name: extract kibana archive
   unarchive:
-    src: "{{ elasticsearch_install_dir }}/kibana-{{ kibana_version }}-linux-x64.tar.gz"
-    dest: "{{ elasticsearch_install_dir }}"
+    src: "{{ kibana_dir }}-linux-x64.tar.gz"
+    dest: "{{ es_install_dir }}"
     copy: no
   when: not status.stat.exists
 
 - name: rename kibana directory
-  command: "mv kibana-{{ kibana_version }}-linux-x64 kibana-{{ kibana_version }} chdir={{ elasticsearch_install_dir }}"
+  command: "mv kibana-{{ kibana_version }}-linux-x64 kibana-{{ kibana_version }} chdir={{ es_install_dir }}"
   when: not status.stat.exists
 
 - name: remove kibana downloaded archive
-  file: path="{{ elasticsearch_install_dir }}/kibana-{{ kibana_version }}-linux-x64.tar.gz" state=absent
+  file: path="{{ kibana_dir }}-linux-x64.tar.gz" state=absent
   when: not status.stat.exists
 
 - name: install marvel
-  command: "bin/plugin install {{ item }} chdir={{ elasticsearch_install_dir }}/elasticsearch-{{elasticsearch_version}}"
+  command: "bin/plugin install {{ item }} chdir={{ es_dir }}"
   with_items:
     - license
     - marvel-agent
   when: not status.stat.exists
 
 - name: add marvel to kibana
-  command: "bin/kibana plugin --install elasticsearch/marvel/latest chdir={{ elasticsearch_install_dir }}/kibana-{{ kibana_version }}"
+  command: "bin/kibana plugin --install elasticsearch/marvel/latest chdir={{ kibana_dir }}"
   when: not status.stat.exists
 
 - name: install sense
-  command: "bin/kibana plugin --install elastic/sense chdir={{ elasticsearch_install_dir }}/kibana-{{ kibana_version }}"
+  command: "bin/kibana plugin --install elastic/sense chdir={{ kibana_dir }}"
   when: not status.stat.exists
 
 - name: change owner of elasticsearch and kibana
@@ -60,5 +60,5 @@
     recurse: yes
     state: directory
   with_items:
-    - "{{ elasticsearch_install_dir }}/elasticsearch-{{ elasticsearch_version }}"
-    - "{{ elasticsearch_install_dir }}/kibana-{{ kibana_version }}"
+    - "{{ es_dir }}"
+    - "{{ kibana_dir }}"

@@ -1,7 +1,10 @@
 ---
-elasticsearch_install_dir: /opt
-elasticsearch_version: 2.1.1
-elasticsearch_app: "{{ elasticsearch_install_dir }}/elasticsearch-{{ elasticsearch_version }}/bin/elasticsearch"
-elasticsearch_download_url: "https://download.elasticsearch.org/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/{{ elasticsearch_version }}/elasticsearch-{{ elasticsearch_version }}.tar.gz"
+es_install_dir: /opt
+es_version: 2.1.1
+es_dir: "{{ es_install_dir }}/elasticsearch-{{ es_version }}"
+es_app: "{{ es_dir }}/bin/elasticsearch"
+es_download_url: "https://download.elasticsearch.org/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/{{ es_version }}/elasticsearch-{{ es_version }}.tar.gz"
+
 kibana_version: 4.3.1
+kibana_dir: "{{ es_install_dir }}/kibana-{{ kibana_version }}"
 kibana_download_url: "https://download.elastic.co/kibana/kibana/kibana-{{ kibana_version }}-linux-x64.tar.gz"
