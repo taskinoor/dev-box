@@ -13,7 +13,8 @@ Vagrant.configure(2) do |config|
 
     _synced_folders = [
         ["../eBooks/Flask Web Development - Miguel Grinberg/flasky", "/mnt/flasky"],
-        ["../Works/Self/misc-codes/utils", "/mnt/utils"]
+        ["../Works/Self/misc-codes/utils", "/mnt/utils"],
+        ["../Works/Self/algorithms", "/mnt/algorithms"]
     ]
 
     _synced_folders.each do |host_path, guest_path|
