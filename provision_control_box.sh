@@ -3,9 +3,9 @@
 set -e
 
 sudo apt-get update
-sudo apt-get -y install python-dev python-pip sshpass
+sudo apt-get -y install python-dev python-pip sshpass libffi-dev libssl-dev
 
-sudo pip install ansible
+sudo pip install -U ansible==1.9.3
 
 ssh_dir=/home/vagrant/.ssh
 ssh_identity_file=$ssh_dir/id_rsa
