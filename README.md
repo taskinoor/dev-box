@@ -1,4 +1,4 @@
-A [Vagrant](https://www.vagrantup.com/) development box running Ubuntu 12.04 to experiment with different things. The box is provisioned by [Ansible](http://www.ansible.com/) to make recreation easier and consistent. Both `dev-box` and `ansible-control-box` are auto-provisioned, there is nothing that is installed or configured manually.
+A [Vagrant](https://www.vagrantup.com/) development box running Ubuntu 14.04 to experiment with different things. The box is provisioned by [Ansible](http://www.ansible.com/) to make recreation easier and consistent. Both `dev-box` and `ansible-control-box` are auto-provisioned, there is nothing that is installed or configured manually.
 
 The steps to provision the box and the reason of using separate `ansible-control-box` instead of simple `vagrant up` is explained [here](https://github.com/taskinoor/misc-codes/tree/master/vagrant-ansible-win7).
 
