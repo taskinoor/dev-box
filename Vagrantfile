@@ -1,7 +1,7 @@
 Vagrant.configure(2) do |config|
   config.vm.box = "ubuntu/trusty64"
 
-  config.vm.define "dev-box" do |dev_box|
+  config.vm.define "dev-box", primary: true do |dev_box|
 	dev_box.vm.hostname = "dev-box"
 	dev_box.vm.network "private_network", ip: "192.168.31.11"
 
@@ -24,7 +24,7 @@ Vagrant.configure(2) do |config|
 
   end
 
-  config.vm.define "ansible-control-box" do |control_box|
+  config.vm.define "ansible-control-box", autostart: false do |control_box|
     control_box.vm.hostname = "ansible-control-box"
     control_box.vm.network "private_network", ip: "192.168.31.13"
     control_box.vm.provision "shell", path: "provision_control_box.sh", privileged: false
