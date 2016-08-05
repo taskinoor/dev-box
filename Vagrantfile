@@ -6,8 +6,8 @@ Vagrant.configure(2) do |config|
 	dev_box.vm.network "private_network", ip: "192.168.31.11"
 
     dev_box.vm.provider "virtualbox" do |vb|
-      vb.memory = 2048
-      vb.cpus = 4
+      vb.memory = 1024
+      vb.cpus = 2
     end
 
     _synced_folders = [
