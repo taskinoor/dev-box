@@ -2,6 +2,7 @@
 packages:
   - g++
   - libgtest-dev
+  - valgrind
 
 gtest_src_dir: /usr/src/gtest
 gtest_build_dir: "{{ gtest_src_dir }}/build"
