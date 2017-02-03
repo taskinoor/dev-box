@@ -16,3 +16,4 @@ python_global_packages:
   - ipython
   - python-dateutil
   - yolk
+  - numpy
