@@ -12,7 +12,6 @@ Vagrant.configure(2) do |config|
     end
 
     _synced_folders = [
-        ["../eBooks/Flask Web Development - Miguel Grinberg/flasky", "/mnt/flasky"],
         ["../Works/Self/misc-codes/utils", "/mnt/utils"],
         ["../Works/Self/algorithms", "/mnt/algorithms"]
     ]
